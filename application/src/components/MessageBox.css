@@ -1,0 +1,19 @@
+.MessageBox {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  width: 100%;
+  height: 200px;
+  border: 1px solid #ccc;
+}
+
+.MessageBox li {
+  margin-left: 8px;
+  margin-top: 8px;
+  width: 90%;
+	border: 1px solid #ccc;
+	padding: 0.5rem;
+	word-wrap: break-word;
+	border-radius: 10px;
+  box-sizing: border-box;
+}
