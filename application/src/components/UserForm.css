@@ -19,7 +19,15 @@
   align-self: flex-end;
 }
 
-.UserForm input {
+.UserForm .form label {
+  align-self: flex-start;
+}
+
+.UserForm .form input {
   box-sizing: border-box;
+  width: 100%;
+}
+
+.UserForm .form select {
   width: 100%;
 }

@@ -4,7 +4,7 @@ import './MessageBox.css';
 const MessageBox = (props) =>
   <ul className='MessageBox'>
     {
-      props.messages ? props.messages.map(message => <li>{message}</li>) : 'There are no messages'
+      props.news ? props.news.map((message,key) => <li key={key}>{message}</li>) : 'There are no messages'
     }
   </ul>
 

@@ -11,14 +11,37 @@ class UserForm extends Component {
       <div className='UserForm'>
         <h3 className='title'>Form for creating a user</h3>
         <form className='form'>
+          <label>Name</label>
           <input type='text'
-                 className='user-form-input'
+                 className='user-form-name'
                  placeholder='Please, enter a name'
-                 ref = 'input'/>
-          <button name='user-form-button' type='button'>Create</button>
+                 ref = 'name'/>
+          <label>Type</label>
+          <select ref='type'>
+            <option>robot</option>
+            <option>user</option>
+          </select>
+          <button
+            name='user-form-button'
+            type='button'
+            onClick={this.userFormHandler.bind(this, this.props.createUser)}>Create</button>
         </form>
       </div>
     );
+  }
+
+  userFormHandler(createUserMethod) {
+    if (this.refs.name.value && this.refs.type.value) {
+      const data = {
+        name: this.refs.name.value,
+        type: this.refs.type.value
+      }
+      createUserMethod(data);
+      this.refs.name.value = '';
+      this.refs.type.value = '';
+    } else {
+      alert('Некорректные данные')
+    }
   }
 }
 
