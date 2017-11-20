@@ -9,7 +9,8 @@ const FieldTypeEdition = (props) =>
       <input type='text' />
       <button type='button' name='field-news'>Add</button>
     </form>
-    <MessageBox news={props.fieldNews}/>
+    <MessageBox news={props.news}/>
+    <button type='button' name='delete-edition' onClick={props.deleteObject}>delete edition</button>
   </li>
 
 export default FieldTypeEdition;

@@ -7,10 +7,40 @@ import './EditionsList.css';
 const EditionsList = (props) =>
   <div className='EditionsList'>
     <h3 className='title'>List of editions</h3>
-    <ul>
-      <FieldTypeEdition fieldNews={props.fieldNews} />
-      <ButtonEdition news={props.news} randomNews={props.randomNews} />
-      <ServerEdition serverNews={props.serverNews} />
+    <ul className='editions'>
+      {
+        Object.entries(props.editionsNews).length ? Object.entries(props.editionsNews).map((edition,key) => {
+          if (edition[0] === 'server') {
+            return <ServerEdition
+                                  key={key}
+                                  news={edition[1].news}
+                                  name={edition[1].name}
+                                  deleteObject={props.deleteObject.bind(null, {
+                                    method: 'delete',
+                                    type: 'edition',
+                                    name: edition[1].name})} />
+          } else if (edition[0] === 'input field') {
+            return <FieldTypeEdition
+                                    key={key}
+                                    news={edition[1].news}
+                                    name={edition[1].name}
+                                    deleteObject={props.deleteObject.bind(null, {
+                                      method: 'delete',
+                                      type: 'edition',
+                                      name: edition[1].name})} />
+          } else if (edition[0] === 'button') {
+            return <ButtonEdition
+                                  key={key}
+                                  news={edition[1].news}
+                                  name={edition[1].name}
+                                  createNews={edition[1].createNews}
+                                  deleteObject={props.deleteObject.bind(null, {
+                                    method: 'delete',
+                                    type: 'edition',
+                                    name: edition[1].name})} />
+          }
+        }) : 'There are no edition'
+      }
     </ul>
   </div>
 

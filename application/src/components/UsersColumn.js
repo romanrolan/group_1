@@ -5,12 +5,8 @@ import './UsersColumn.css';
 
 const UsersColumn = (props) =>
   <div className='UsersColumn'>
-    <EditionsList
-      serverNews={props.serverNews}
-      randomNews={props.randomNews}
-      fieldNews={props.fieldNews}
-      news={props.news} />
-    <UsersList users={props.users}/>
+    <EditionsList editionsNews={props.editionsNews} deleteObject={props.deleteObject} />
+    <UsersList usersNews={props.usersNews} deleteObject={props.deleteObject} />
   </div>
 
 export default UsersColumn;

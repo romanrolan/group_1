@@ -24,7 +24,7 @@ class UserForm extends Component {
           <button
             name='user-form-button'
             type='button'
-            onClick={this.userFormHandler.bind(this, this.props.createUser)}>Create</button>
+            onClick={this.userFormHandler.bind(this, this.props.createObject)}>Create</button>
         </form>
       </div>
     );
@@ -33,8 +33,9 @@ class UserForm extends Component {
   userFormHandler(createUserMethod) {
     if (this.refs.name.value && this.refs.type.value) {
       const data = {
+        type: 'user',
         name: this.refs.name.value,
-        type: this.refs.type.value
+        userType: this.refs.type.value
       }
       createUserMethod(data);
       this.refs.name.value = '';

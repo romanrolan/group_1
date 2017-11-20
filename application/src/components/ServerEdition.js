@@ -5,7 +5,8 @@ import './ServerEdition.css';
 const ServerEdition = (props) =>
   <li className='ServerEdition'>
     <h3 className='title'>Server Edition</h3>
-    <MessageBox news={props.serverNews} />
+    <MessageBox news={props.news} />
+    <button type='button' name='delete-edition' onClick={props.deleteObject}>delete edition</button>
   </li>
 
 export default ServerEdition;
