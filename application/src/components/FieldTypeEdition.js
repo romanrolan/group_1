@@ -1,16 +1,29 @@
-import React from 'react';
+import React, { Component } from 'react';
 import MessageBox from './MessageBox';
 import './FieldTypeEdition.css';
 
-const FieldTypeEdition = (props) =>
-  <li className='FieldTypeEdition'>
-    <h3 className='title'>First Edition</h3>
-    <form>
-      <input type='text' />
-      <button type='button' name='field-news'>Add</button>
-    </form>
-    <MessageBox news={props.news}/>
-    <button type='button' name='delete-edition' onClick={props.deleteObject}>delete edition</button>
-  </li>
+class FieldTypeEdition extends Component {
+  render() {
+    return (
+      <li className='FieldTypeEdition'>
+        <h3 className='title'>First Edition</h3>
+        <p>{this.props.name}</p>
+        <form>
+          <input type='text' ref='news' />
+          <button type='button' name='field-news' onClick={this.buttonHandler}>Add</button>
+        </form>
+        <MessageBox news={this.props.news}/>
+        <button type='button' name='delete-edition' onClick={this.props.deleteObject}>delete edition</button>
+      </li>
+    )
+  }
+
+  buttonHandler = () => {
+    if (this.refs.news.value) {
+      this.props.createNews(this.refs.news.value);
+      this.refs.news.value = '';
+    }
+  }
+}
 
 export default FieldTypeEdition;

@@ -63,6 +63,7 @@ export class Publisher extends Observer {
     }
     this.makeNewsServ = this.makeNewsServ.bind(this, transferData);
     this.makeNewsRandom = this.makeNewsRandom.bind(this, transferData);
+    this.makeNewsManual = this.makeNewsManual.bind(this, transferData);
   }
 
   _randomVal(min, max){  // генерация случайного числа
@@ -121,8 +122,8 @@ export class Publisher extends Observer {
       });
   }
 
-  makeNewsManual (fnIn, fnOut){
-    let input = `${this.type} ${fnIn.call(null)}`;
+  makeNewsManual (fnOut, fnIn){
+    let input = `${this.type} ${fnIn}`;
     fnOut(input, this.type); // передача EventEmitterу новости и типа газеты
     this.news.push(input); // добавление новости к себе в хранилище
     this.trigger(this.news);
@@ -215,33 +216,33 @@ export class Store extends Observer {
   }
 
   notificationView = () => { // оповещение вьюхи когда пришли новости
-    this.trigger(this.getData());
+    this.trigger();
   }
 
   getData = () => { // метод для передачи распарсеных данных вьюхе
-    let usersNews = {} // нужные вьюхе данные по юзерам
-    let editionsNews = {}; // нужные вьюхе данные по изданиям
+    let users = {} // нужные вьюхе данные по юзерам
+    let editions = {}; // нужные вьюхе данные по изданиям
     if (this.users.length) {
       this.users.forEach(user => {
-        usersNews[user.name] = user.news;
+        users[user.name] = user.news;
       });
     }
     if (this.editions.length) {
       this.editions.forEach(edition => {
         switch (edition.type) {
-          case 'server': editionsNews[edition.type] = {
+          case 'server': editions[edition.type] = {
             name: edition.name,
             news: edition.news,
             createNews: edition.makeNewsServ
           };
 
-          case 'input field': editionsNews[edition.type] = {
+          case 'input field': editions[edition.type] = {
             name: edition.name,
             news: edition.news,
             createNews: edition.makeNewsManual
           };
 
-          case 'button': editionsNews[edition.type] = {
+          case 'button': editions[edition.type] = {
             name: edition.name,
             news: edition.news,
             createNews: edition.makeNewsRandom
@@ -250,7 +251,7 @@ export class Store extends Observer {
         }
       });
     }
-    return {usersNews, editionsNews}
+    return {users, editions}
   }
 
 }

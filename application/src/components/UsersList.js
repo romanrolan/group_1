@@ -7,7 +7,7 @@ const UsersList = (props) =>
     <h3 className='title'>List of users</h3>
     <ul className='users'>
       {
-        Object.entries(props.usersNews).length ? Object.entries(props.usersNews).map((user,key) => {
+        Object.entries(props.users).length ? Object.entries(props.users).map((user,key) => {
           return <User key={key} name={user[0]} news={user[1]} deleteObject={props.deleteObject}/>
         }) : 'There are no users'
       }

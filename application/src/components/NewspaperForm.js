@@ -25,13 +25,13 @@ class NewspaperForm extends Component {
           <button
             name='newspaper-form-button'
             type='button'
-            onClick={this.userFormHandler.bind(this, this.props.createObject)}>Create</button>
+            onClick={() => this.EditionFormHandler(this.props.createObject)}>Create</button>
         </form>
       </div>
     );
   }
 
-  userFormHandler(createEditionMethod) {
+  EditionFormHandler(createEditionMethod) {
     if (this.refs.name.value && this.refs.type.value) {
       const data = {
         type: 'edition',

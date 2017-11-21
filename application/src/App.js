@@ -1,33 +1,32 @@
 import React, { Component } from 'react';
 import FormsColumn from './components/FormsColumn';
 import UsersColumn from './components/UsersColumn';
-import { store, factory } from './model/model.config';
 import './App.css';
 
 class App extends Component {
   constructor(props){
     super(props);
-    this.state = {...store.getData()}
+    this.state = {}
   }
 
   render() {
     return (
       <div className='App'>
-        <FormsColumn createObject={factory.createObject}/>
+        <FormsColumn createObject={this.props.createObject}/>
         <UsersColumn
-          usersNews={this.state.usersNews}
-          editionsNews={this.state.editionsNews}
-          deleteObject={factory.deleteObject} />
+          users={this.props.store.getData().users}
+          editions={this.props.store.getData().editions}
+          deleteObject={this.props.deleteObject} />
       </div>
     );
   }
 
-  update = (obj) => {
-    this.setState({...obj});
+  update = () => {
+    this.setState({});
   }
 
-  componentDidMount() {
-    store.subscribe(this.update)
+  componentWillMount() {
+    this.props.store.subscribe(this.update)
   }
 }
 

@@ -24,7 +24,7 @@ class UserForm extends Component {
           <button
             name='user-form-button'
             type='button'
-            onClick={this.userFormHandler.bind(this, this.props.createObject)}>Create</button>
+            onClick={() => this.userFormHandler(this.props.createObject)}>Create</button>
         </form>
       </div>
     );

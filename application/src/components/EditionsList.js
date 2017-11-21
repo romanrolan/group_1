@@ -9,12 +9,13 @@ const EditionsList = (props) =>
     <h3 className='title'>List of editions</h3>
     <ul className='editions'>
       {
-        Object.entries(props.editionsNews).length ? Object.entries(props.editionsNews).map((edition,key) => {
+        Object.entries(props.editions).length ? Object.entries(props.editions).map((edition,key) => {
           if (edition[0] === 'server') {
             return <ServerEdition
                                   key={key}
                                   news={edition[1].news}
                                   name={edition[1].name}
+                                  createNews={edition[1].createNews}
                                   deleteObject={props.deleteObject.bind(null, {
                                     method: 'delete',
                                     type: 'edition',
@@ -24,6 +25,7 @@ const EditionsList = (props) =>
                                     key={key}
                                     news={edition[1].news}
                                     name={edition[1].name}
+                                    createNews={edition[1].createNews}
                                     deleteObject={props.deleteObject.bind(null, {
                                       method: 'delete',
                                       type: 'edition',
