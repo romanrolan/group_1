@@ -1,8 +1,8 @@
 import React from 'react';
-import FieldTypeEdition from './FieldTypeEdition';
-import ButtonEdition from './ButtonEdition';
-import ServerEdition from './ServerEdition';
-import './EditionsList.css';
+import FieldTypeEdition from '../fieldTypeEdition';
+import ButtonEdition from '../buttonEdition';
+import ServerEdition from '../serverEdition';
+import './style.css';
 
 const EditionsList = (props) =>
   <div className='EditionsList'>
@@ -15,7 +15,7 @@ const EditionsList = (props) =>
                                   key={key}
                                   news={edition[1].news}
                                   name={edition[1].name}
-                                  createNews={edition[1].createNews}
+                                  createNews={props.addNews}
                                   deleteObject={props.deleteObject.bind(null, {
                                     method: 'delete',
                                     type: 'edition',
@@ -25,7 +25,7 @@ const EditionsList = (props) =>
                                     key={key}
                                     news={edition[1].news}
                                     name={edition[1].name}
-                                    createNews={edition[1].createNews}
+                                    createNews={props.addNews}
                                     deleteObject={props.deleteObject.bind(null, {
                                       method: 'delete',
                                       type: 'edition',
@@ -35,7 +35,7 @@ const EditionsList = (props) =>
                                   key={key}
                                   news={edition[1].news}
                                   name={edition[1].name}
-                                  createNews={edition[1].createNews}
+                                  createNews={props.addNews}
                                   deleteObject={props.deleteObject.bind(null, {
                                     method: 'delete',
                                     type: 'edition',

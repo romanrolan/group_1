@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import FormsColumn from './components/FormsColumn';
-import UsersColumn from './components/UsersColumn';
+import FormsColumn from './components/formsColumn';
+import UsersColumn from './components/usersColumn';
 import './App.css';
 
 class App extends Component {
@@ -16,7 +16,8 @@ class App extends Component {
         <UsersColumn
           users={this.props.store.getData().users}
           editions={this.props.store.getData().editions}
-          deleteObject={this.props.deleteObject} />
+          deleteObject={this.props.deleteObject}
+          addNews={this.props.addNews} />
       </div>
     );
   }

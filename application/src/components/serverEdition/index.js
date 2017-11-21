@@ -1,12 +1,12 @@
 import React from 'react';
-import MessageBox from './MessageBox';
-import './ServerEdition.css';
+import MessageBox from '../messageBox';
+import './style.css';
 
 const ServerEdition = (props) =>
   <li className='ServerEdition'>
     <h3 className='title'>Server Edition</h3>
     <p>{props.name}</p>
-    <button type='button' name='field-news' onClick={props.createNews}>Add</button>
+    <button type='button' name='field-news' onClick={() => props.createNews('server')}>Add</button>
     <MessageBox news={props.news} />
     <button type='button' name='delete-edition' onClick={props.deleteObject}>delete edition</button>
   </li>

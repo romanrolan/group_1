@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import MessageBox from './MessageBox';
-import './FieldTypeEdition.css';
+import MessageBox from '../messageBox';
+import './style.css';
 
 class FieldTypeEdition extends Component {
   render() {
@@ -20,7 +20,7 @@ class FieldTypeEdition extends Component {
 
   buttonHandler = () => {
     if (this.refs.news.value) {
-      this.props.createNews(this.refs.news.value);
+      this.props.createNews('input field', this.refs.news.value);
       this.refs.news.value = '';
     }
   }

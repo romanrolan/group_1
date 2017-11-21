@@ -235,12 +235,14 @@ export class Store extends Observer {
             news: edition.news,
             createNews: edition.makeNewsServ
           };
+          break;
 
           case 'input field': editions[edition.type] = {
             name: edition.name,
             news: edition.news,
             createNews: edition.makeNewsManual
           };
+          break;
 
           case 'button': editions[edition.type] = {
             name: edition.name,

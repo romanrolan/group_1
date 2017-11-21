@@ -1,4 +1,3 @@
-import { Publisher } from './model';
 import { EventEmitter } from './model';
 import { Factory } from './model';
 import { Store } from './model';
@@ -8,7 +7,13 @@ const factory = new Factory(eventEmitter.trigger);
 const store = new Store();
 factory.subscribe(store.addAndDeleteUserToStore);
 
+const methodsObject = {
+  createObject: factory.createObject,
+  deleteObject: factory.deleteObject,
+  store
+}
+
 export {
   store,
-  factory
+  methodsObject
 }

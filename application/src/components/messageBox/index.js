@@ -1,5 +1,5 @@
 import React from 'react';
-import './MessageBox.css';
+import './style.css';
 
 const MessageBox = (props) =>
   <ul className='MessageBox'>

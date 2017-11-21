@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './NewspaperForm.css';
+import './style.css';
 
 class NewspaperForm extends Component {
   constructor(props) {
@@ -40,7 +40,6 @@ class NewspaperForm extends Component {
       }
       createEditionMethod(data);
       this.refs.name.value = '';
-      this.refs.type.value = '';
     } else {
       alert('Некорректные данные')
     }

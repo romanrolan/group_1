@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './UserForm.css';
+import './style.css';
 
 class UserForm extends Component {
   constructor(props) {
@@ -18,8 +18,8 @@ class UserForm extends Component {
                  ref = 'name'/>
           <label>Type</label>
           <select ref='type'>
-            <option>robot</option>
             <option>user</option>
+            <option>robot</option>
           </select>
           <button
             name='user-form-button'
@@ -39,7 +39,6 @@ class UserForm extends Component {
       }
       createUserMethod(data);
       this.refs.name.value = '';
-      this.refs.type.value = '';
     } else {
       alert('Некорректные данные')
     }

@@ -1,7 +1,7 @@
 import React from 'react';
-import UserForm from './UserForm';
-import NewspaperForm from './NewspaperForm';
-import './FormsColumn.css';
+import UserForm from '../userForm';
+import NewspaperForm from '../newspaperForm';
+import './style.css';
 
 const FormsColumn = (props) =>
   <div className='FormsColumn'>

@@ -1,6 +1,6 @@
 import React from 'react';
-import User from './User';
-import './UsersList.css';
+import User from '../user';
+import './style.css';
 
 const UsersList = (props) =>
   <div className='UsersList'>
@@ -8,7 +8,12 @@ const UsersList = (props) =>
     <ul className='users'>
       {
         Object.entries(props.users).length ? Object.entries(props.users).map((user,key) => {
-          return <User key={key} name={user[0]} news={user[1]} deleteObject={props.deleteObject}/>
+          return <User
+                      key={key}
+                      name={user[0]}
+                      news={user[1]}
+                      deleteObject={props.deleteObject}
+                      editions={props.editions}/>
         }) : 'There are no users'
       }
     </ul>
