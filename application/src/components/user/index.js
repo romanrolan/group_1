@@ -6,12 +6,10 @@ import './style.css';
 class User extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-
-    }
   }
 
   render() {
+    console.log(this.state);
     return (
       <li className='User'>
         <img src={avatar} alt='User avatar'/>
@@ -26,22 +24,6 @@ class User extends Component {
             name: this.props.name})}>Delete User</button>
       </li>
     )
-  }
-
-  componentWillMount() {
-    if (this.props.editions.length) {
-      let stateProps = {};
-      this.props.editions.forEach(name => { stateProps[name] = false })
-      this.setState(stateProps);
-    }
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.editions.length !== this.props.editions.length) {
-      let changedProps;
-
-    }
-
   }
 }
 

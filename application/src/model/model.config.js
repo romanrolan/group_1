@@ -5,11 +5,14 @@ import { Store } from './model';
 const eventEmitter = new EventEmitter();
 const factory = new Factory(eventEmitter.trigger);
 const store = new Store();
-factory.subscribe(store.addAndDeleteUserToStore);
+factory.subscribe(store.addNewObject);
+eventEmitter.subscribe('server', store.distributeNews);
+eventEmitter.subscribe('input field', store.distributeNews);
+eventEmitter.subscribe('button', store.distributeNews);
 
 const methodsObject = {
-  createObject: factory.createObject,
-  deleteObject: factory.deleteObject,
+  // createObject: factory.createObject,
+  // deleteObject: factory.deleteObject,
   store
 }
 

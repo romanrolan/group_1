@@ -26,7 +26,7 @@ class App extends Component {
     this.setState({});
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.store.subscribe(this.update)
   }
 }
