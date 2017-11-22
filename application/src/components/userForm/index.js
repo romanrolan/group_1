@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import './style.css';
 
 class UserForm extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     return (
@@ -24,20 +21,19 @@ class UserForm extends Component {
           <button
             name='user-form-button'
             type='button'
-            onClick={() => this.userFormHandler(this.props.createObject)}>Create</button>
+            onClick={() => this.userFormHandler(this.props.createUser)}>Create</button>
         </form>
       </div>
     );
   }
 
-  userFormHandler(createUserMethod) {
+  userFormHandler(createUser) {
     if (this.refs.name.value && this.refs.type.value) {
       const data = {
-        type: 'user',
         name: this.refs.name.value,
         userType: this.refs.type.value
       }
-      createUserMethod(data);
+      createUser(data);
       this.refs.name.value = '';
     } else {
       alert('Некорректные данные')

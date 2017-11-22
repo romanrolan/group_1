@@ -5,8 +5,16 @@ import './style.css';
 
 const UsersColumn = (props) =>
   <div className='UsersColumn'>
-    <EditionsList editions={props.editions} deleteObject={props.deleteObject} addNews={props.addNews} />
-    <UsersList users={props.users} deleteObject={props.deleteObject} editions={Object.keys(props.editions)} />
+    <EditionsList
+                  editions={props.editions}
+                  deleteEdition={props.deleteEdition}
+                  addNews={props.addNews} />
+    <UsersList
+              users={props.users}
+              deleteUser={props.deleteUser}
+              editions={Object.keys(props.editions)}
+              subscribeNews={props.subscribeNews}
+              unSubscribeNews={props.unSubscribeNews} />
   </div>
 
 export default UsersColumn;

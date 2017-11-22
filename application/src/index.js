@@ -7,6 +7,10 @@ import controller from './controller';
 
 render(<App
           store={store}
-          createObject={controller.createEditionAndUserHandler}
-          deleteObject={controller.deleteObjectHandler}
-          addNews={controller.addNewsHandler} />, document.getElementById('root'));
+          createEdition={controller.createEditionHandler}
+          createUser={controller.createUserHandler}
+          deleteUser={controller.deleteUserHandler}
+          deleteEdition={controller.deleteEditionHandler}
+          addNews={controller.addNewsHandler}
+          subscribeNews={controller.subscribeNewsHandler}
+          unSubscribeNews={controller.unSubscribeNewsHandler} />, document.getElementById('root'));

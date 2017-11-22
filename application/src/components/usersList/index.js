@@ -11,9 +11,12 @@ const UsersList = (props) =>
           return <User
                       key={key}
                       name={user[0]}
-                      news={user[1]}
-                      deleteObject={props.deleteObject}
-                      editions={props.editions}/>
+                      news={user[1].news}
+                      type={user[1].type}
+                      editions={props.editions}
+                      deleteUser={props.deleteUser}
+                      subscribeNews={props.subscribeNews}
+                      unSubscribeNews={props.unSubscribeNews} />
         }) : 'There are no users'
       }
     </ul>

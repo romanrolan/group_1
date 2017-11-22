@@ -44,9 +44,8 @@ export class EventEmitter {
 }
 
 
-export class Publisher extends Observer {
+export class Publisher {
   constructor(name, type, transferData){
-    super();
     this.name = name;
     this.type = type;
     this.news = [];
@@ -100,9 +99,8 @@ export class Publisher extends Observer {
     })
     .then(user => {
       let news = `${this.type} ${user.body.slice(0, this._set.strLength)}`;
-      fn(news, this.type);
       this.news.push(news);
-      this.trigger(this.news);
+      fn(news, this.type);
     })
     .catch(reject => alert('Error'));
   }
@@ -116,17 +114,15 @@ export class Publisher extends Observer {
       }, rndTime);
     });
     rndStrAsync.then(result => {
-      fn(result, this.type);
       this.news.push(result);
-      this.trigger(this.news);
+      fn(result, this.type);
       });
   }
 
   makeNewsManual (fnOut, fnIn){
     let input = `${this.type} ${fnIn}`;
-    fnOut(input, this.type);
     this.news.push(input);
-    this.trigger(this.news);
+    fnOut(input, this.type);
   }
 }
 
@@ -137,10 +133,6 @@ export class User {
     this.name = name;
     this.type = type;
     this.signedEditions = [];
-  }
-
-  update = (data) => {
-    this.news.push(data);
   }
 }
 
@@ -229,13 +221,14 @@ export class Store extends Observer {
     })
   }
 
-  distributeNews = (params) => {
+  distributeNews = (data) => {
+    const editionName = data.split(' ')[0];
     this.users.forEach(user => {
-      if (user.signedEditions.includes(params.editionName)) {
-        user.news.push(params.data);
-        this.notificationSubscribers();
+      if (user.signedEditions.includes(editionName)) {
+        user.news.push(data);
       }
-    })
+    });
+    this.notificationSubscribers();
   }
 
   notificationSubscribers = () => {
@@ -248,7 +241,9 @@ export class Store extends Observer {
 
     if (this.users.length) {
       this.users.forEach(user => {
-        users[user.name] = user.news;
+        users[user.name] = {};
+        users[user.name]['news'] = user.news;
+        users[user.name]['type'] = user.type;
       });
     }
 
@@ -264,7 +259,7 @@ export class Store extends Observer {
           case 'server': editions[edition.type].createNews = edition.makeNewsServ;
           break;
 
-          case 'input field': editions[edition.type].createNews = edition.makeNewsManual;
+          case 'input': editions[edition.type].createNews = edition.makeNewsManual;
           break;
 
           case 'button': editions[edition.type].createNews = edition.makeNewsRandom;

@@ -19,3 +19,20 @@
 	text-transform: uppercase;
   width: 100%;
 }
+
+.User div {
+  width: 100%;
+}
+
+.User div button[name='status'] {
+  background: #4387fd;
+	border: 0;
+	color: #fff;
+  padding: 0.5rem 0.5rem;
+  cursor: pointer;
+  user-select: none;
+	font-size: 0.8rem;
+	text-transform: uppercase;
+  margin: 0.5rem 3%;
+  width: 42%;
+}

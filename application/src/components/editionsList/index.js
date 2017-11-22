@@ -16,30 +16,21 @@ const EditionsList = (props) =>
                                   news={edition[1].news}
                                   name={edition[1].name}
                                   createNews={props.addNews}
-                                  deleteObject={props.deleteObject.bind(null, {
-                                    method: 'delete',
-                                    type: 'edition',
-                                    name: edition[1].name})} />
-          } else if (edition[0] === 'input field') {
+                                  deleteEdition={props.deleteEdition} />
+          } else if (edition[0] === 'input') {
             return <FieldTypeEdition
                                     key={key}
                                     news={edition[1].news}
                                     name={edition[1].name}
                                     createNews={props.addNews}
-                                    deleteObject={props.deleteObject.bind(null, {
-                                      method: 'delete',
-                                      type: 'edition',
-                                      name: edition[1].name})} />
+                                    deleteEdition={props.deleteEdition} />
           } else if (edition[0] === 'button') {
             return <ButtonEdition
                                   key={key}
                                   news={edition[1].news}
                                   name={edition[1].name}
                                   createNews={props.addNews}
-                                  deleteObject={props.deleteObject.bind(null, {
-                                    method: 'delete',
-                                    type: 'edition',
-                                    name: edition[1].name})} />
+                                  deleteEdition={props.deleteEdition} />
           }
         }) : 'There are no edition'
       }

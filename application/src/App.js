@@ -12,12 +12,17 @@ class App extends Component {
   render() {
     return (
       <div className='App'>
-        <FormsColumn createObject={this.props.createObject}/>
+        <FormsColumn
+                    createEdition={this.props.createEdition}
+                    createUser={this.props.createUser} />
         <UsersColumn
-          users={this.props.store.getData().users}
-          editions={this.props.store.getData().editions}
-          deleteObject={this.props.deleteObject}
-          addNews={this.props.addNews} />
+                    users={this.props.store.getData().users}
+                    editions={this.props.store.getData().editions}
+                    deleteUser={this.props.deleteUser}
+                    deleteEdition={this.props.deleteEdition}
+                    addNews={this.props.addNews}
+                    subscribeNews={this.props.subscribeNews}
+                    unSubscribeNews={this.props.unSubscribeNews} />
       </div>
     );
   }

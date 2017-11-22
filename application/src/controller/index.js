@@ -1,28 +1,39 @@
-import { methodsObject } from '../model/model.config';
+import { store, factory } from '../model/model.config';
 
 class Controller {
-  constructor(methodsObject) {
-    this.methodsObject = methodsObject;
-    this.addNewsHandler = this.addNewsHandler.bind(this, methodsObject.store);
+  constructor(store, factory) {
+    this.model = { store, factory };
   }
 
-  createEditionAndUserHandler = (obj) => {
-    this.methodsObject.createObject(obj);
+  createEditionHandler = (obj) => {
+    this.model.factory.createEdition(obj);
   }
 
-  deleteObjectHandler = (obj) => {
-    this.methodsObject.deleteObject(obj);
+  createUserHandler = (obj) => {
+    this.model.factory.createUser(obj);
   }
 
-  addNewsHandler = (store, type, data) => {
-    store.getData().editions[type].createNews(data);
+  deleteUserHandler = (obj) => {
+    this.model.store.deleteUser(obj);
   }
 
-  subscribeUnsubscribeHandler = () => {
+  deleteEditionHandler = (name) => {
+    this.model.store.deleteEdition(name);
+  }
 
+  addNewsHandler = (type, data) => {
+    this.model.store.getData().editions[type].createNews(data);
+  }
+
+  subscribeNewsHandler = (obj) => {
+    this.model.store.addSubscriptionToEdition(obj);
+  }
+
+  unSubscribeNewsHandler = (obj) => {
+    this.model.store.deleteSubscriptionToEdition(obj);
   }
 }
 
-const controller = new Controller(methodsObject);
+const controller = new Controller(store, factory);
 
 export default controller;

@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import './style.css';
 
 class NewspaperForm extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     return (
@@ -19,26 +16,25 @@ class NewspaperForm extends Component {
           <label>Type</label>
           <select ref='type'>
             <option>server</option>
-            <option>input field</option>
+            <option>input</option>
             <option>button</option>
           </select>
           <button
             name='newspaper-form-button'
             type='button'
-            onClick={() => this.EditionFormHandler(this.props.createObject)}>Create</button>
+            onClick={() => this.editionFormHandler(this.props.createEdition)}>Create</button>
         </form>
       </div>
     );
   }
 
-  EditionFormHandler(createEditionMethod) {
+  editionFormHandler(createEdition) {
     if (this.refs.name.value && this.refs.type.value) {
       const data = {
-        type: 'edition',
         name: this.refs.name.value,
-        editionType: this.refs.type.value
+        type: this.refs.type.value
       }
-      createEditionMethod(data);
+      createEdition(data);
       this.refs.name.value = '';
     } else {
       alert('Некорректные данные')

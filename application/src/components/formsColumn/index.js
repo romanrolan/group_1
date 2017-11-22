@@ -5,8 +5,8 @@ import './style.css';
 
 const FormsColumn = (props) =>
   <div className='FormsColumn'>
-    <UserForm createObject={props.createObject}/>
-    <NewspaperForm createObject={props.createObject}/>
+    <UserForm createUser={props.createUser} />
+    <NewspaperForm createEdition={props.createEdition} />
   </div>
 
 export default FormsColumn;
