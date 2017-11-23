@@ -24,7 +24,8 @@
   width: 100%;
 }
 
-.User div button[name='status'] {
+.User div button[name='status-subscribe'],
+.User div button[name='status-unsubscribe'] {
   background: #4387fd;
 	border: 0;
 	color: #fff;
@@ -35,4 +36,8 @@
 	text-transform: uppercase;
   margin: 0.5rem 3%;
   width: 42%;
+}
+
+.User div button[name='status-subscribe'] {
+  background: red
 }

@@ -10,7 +10,7 @@ class FieldTypeEdition extends Component {
         <p>{`Edition name is ${this.props.name}`}</p>
         <form>
           <input type='text' ref='news' />
-          <button type='button' name='field-news' onClick={this.buttonHandler}>Add</button>
+          <button type='button' name='field-news' onClick={this.buttonHandler}>Add news</button>
         </form>
         <MessageBox news={this.props.news}/>
         <button type='button' name='delete-edition' onClick={() => this.props.deleteEdition(this.props.name)}>delete edition</button>

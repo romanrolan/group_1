@@ -16,6 +16,19 @@
   margin-top: 0.4rem;
 }
 
+.ServerEdition button {
+  background: #c6c6c6;
+	border: 0;
+	color: #000;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  user-select: none;
+	font-size: 1rem;
+  margin-top: 2px;
+	text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
 .ServerEdition button[name='delete-edition'] {
   background: #4387fd;
 	border: 0;

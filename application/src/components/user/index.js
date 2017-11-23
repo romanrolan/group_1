@@ -10,14 +10,14 @@ class User extends Component {
       <div key={key}>
         <button
                 type='button'
-                name='status'
+                name='status-subscribe'
                 onClick={() => this.props.subscribeNews({
                   userName: this.props.name,
                   editionName: name
                 })}>{`Subscribe ${name}`}</button>
         <button
                 type='button'
-                name='status'
+                name='status-unsubscribe'
                 onClick={() => this.props.unSubscribeNews({
                   userName: this.props.name,
                   editionName: name

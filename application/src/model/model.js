@@ -134,6 +134,10 @@ export class User {
     this.type = type;
     this.signedEditions = [];
   }
+
+  update = (data) => {
+    this.news.push(data);
+  }
 }
 
 
@@ -225,7 +229,7 @@ export class Store extends Observer {
     const editionName = data.split(' ')[0];
     this.users.forEach(user => {
       if (user.signedEditions.includes(editionName)) {
-        user.news.push(data);
+        user.update(data);
       }
     });
     this.notificationSubscribers();

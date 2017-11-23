@@ -6,7 +6,7 @@ const ButtonEdition = (props) =>
   <li className='ButtonEdition'>
     <h3 className='title'>Button Edition</h3>
     <p>{`Edition name is ${props.name}`}</p>
-    <button type='button' name='field-news' onClick={() => props.createNews('button')}>Add</button>
+    <button type='button' name='field-news' onClick={() => props.createNews('button')}>Add news</button>
     <MessageBox news={props.news} />
     <button type='button' name='delete-edition' onClick={() => props.deleteEdition(props.name)}>delete edition</button>
   </li>
