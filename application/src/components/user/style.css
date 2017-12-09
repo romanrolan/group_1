@@ -1,0 +1,43 @@
+.User {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px;
+}
+
+.User button[name='delete-user'] {
+  background: #4387fd;
+	border: 0;
+	color: #fff;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  user-select: none;
+	font-size: 1rem;
+  margin-top: 0.5rem;
+	text-transform: uppercase;
+  width: 100%;
+}
+
+.User div {
+  width: 100%;
+}
+
+.User div button[name='status-subscribe'],
+.User div button[name='status-unsubscribe'] {
+  background: #4387fd;
+	border: 0;
+	color: #fff;
+  padding: 0.5rem 0.5rem;
+  cursor: pointer;
+  user-select: none;
+	font-size: 0.8rem;
+	text-transform: uppercase;
+  margin: 0.5rem 3%;
+  width: 42%;
+}
+
+.User div button[name='status-subscribe'] {
+  background: red
+}

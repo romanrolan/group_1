@@ -1,0 +1,7 @@
+.UsersColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  border-right: 1px solid #ccc;
+}

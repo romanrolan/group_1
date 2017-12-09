@@ -1,0 +1,29 @@
+.NewspaperForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  margin-top: 50px;
+}
+
+.NewspaperForm .title {
+  text-align: center;
+}
+
+.NewspaperForm .form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  border: 1px solid grey;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.NewspaperForm .form button {
+  align-self: flex-end;
+}
+
+.NewspaperForm select {
+  width: 100%;
+}
